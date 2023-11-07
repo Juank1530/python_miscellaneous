@@ -1,9 +1,8 @@
 from selenium import webdriver
-from selenium.common import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-import datetime
 import time
 import sys
 from selenium.webdriver.support import expected_conditions as EC
@@ -61,10 +60,12 @@ def get_data_site(driver, url, site_url):
     return links
 
 def open_images(driver,link_list):
-    for i in range(1,10):
+    for i in range(1,5):
         for link in link_list:
             driver.get(link)
             time.sleep(2)
+    driver.close()
+
 
 
 

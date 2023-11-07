@@ -1,4 +1,4 @@
-from selenium.common import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException
 from pagesSpeedImages import config
 from pagesSpeedImages.imagesPagesSpeed import open_browser, get_data_site, open_images
 
@@ -26,6 +26,6 @@ if __name__ == '__main__':
         try:
             print('Second Attempt')
             list_links = get_data_site(driver, config.BASE_URL, config.SITE_URL)
-            open_images(driver, list)
+            open_images(driver, list_links)
         except NoSuchElementException:
             print("This auditory has been passed")
