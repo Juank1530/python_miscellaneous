@@ -59,12 +59,21 @@ def get_data_site(driver, url, site_url):
 
     return links
 
-def open_images(driver,link_list):
-    for i in range(1,5):
+def open_images(driver, link_list, path):
+    visited_urls = set()
+
+    for i in range(1, 6):
         for link in link_list:
             driver.get(link)
+            if link not in visited_urls:
+                with open(path, "a") as file:
+                    file.write(link + "\n")
+                visited_urls.add(link)
             time.sleep(2)
     driver.close()
+
+
+
 
 
 
